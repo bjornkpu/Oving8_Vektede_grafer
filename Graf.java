@@ -58,19 +58,25 @@ class Graf {
 	}
 	void printDijkstra() {
 		Node n;
+		System.out.println("Node    "+"Forgj         "+"Dist");
 		for (int i = 0; i < node.length; i++) {
 			n = node[i];
 			Forgj fj= (Forgj)n.d;
 			int f = Arrays.asList(node).indexOf(fj.forgj);
-			String ut;
-			if (f < 0) {
-				ut=" ";
-			} else {
-				ut=""+f;
+			String forUt = ""+f;
+			String distUt = ""+fj.dist;
+
+			if (f == -1) {
+				forUt = " ";
+				if(fj.dist == 0){
+					forUt = "Start";
+				}
 			}
+			if (fj.dist == 1000000000) distUt = "nåes ikke";
+
 			System.out.println(i + "          "
-					+ut + "         "
-					+ fj.dist);
+					+forUt + "           "
+					+ distUt);
 		}
 	}
 

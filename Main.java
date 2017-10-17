@@ -21,15 +21,16 @@ class Main {
 			g.ny_vgraf(reader);
 
 			//Utfører bredde-Først-Søk og skriver denne ut
-			int StartNode = 5;
-
-			System.out.println("Node    "+"Forgj    "+"Dist");
-			g.dijkstra(g.node[StartNode]);
-			g.printDijkstra();
+				int StartNode = 1;
+				System.out.println("Startnode: "+StartNode);
+				g.dijkstra(g.node[StartNode]);
+				g.printDijkstra();
 
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Denne startnoden finnes ikke i grafen.");
 		} finally {
 			try {
 				reader.close();
